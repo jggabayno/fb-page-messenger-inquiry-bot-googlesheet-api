@@ -1,0 +1,29 @@
+name: Deploy to Render
+
+on:
+  push:
+    branches:
+      - staging
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install Render CLI
+        run: |
+          curl -fsSL https://github.com/render/render-cli/releases/latest/download/install.sh | sh
+          echo "$HOME/.render/bin" >> $GITHUB_PATH
+
+      - name: Login to Render
+        run: render login --token ${{ secrets.RENDER_API_KEY }}
+
+      - name: Deploy to Render
+        run: render deploy --service-id ${{ secrets.RENDER_SERVICE_ID }}
+
+    environment:
+      name: ${{ github.ref == 'refs/heads/main' && 'production' || 'staging' }}

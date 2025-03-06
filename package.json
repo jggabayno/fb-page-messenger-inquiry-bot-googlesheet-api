@@ -1,0 +1,21 @@
+{
+      "name": "fb-page-messenger-inquiry-bot-googlesheet",
+      "version": "1.0.0",
+      "description": "A chatbot built with Facebook Messenger and Google Sheets for inquiry handling. Developed using Express.js.",
+      "author": "Jonh Gall Gabayno (jggabayno) - Website: https://jggabayno.vercel.app, GitHub: https://github.com/jggabayno",
+      "main": "server.js",
+      "type": "module",
+      "scripts": {
+            "start": "nodemon server.js"
+      },
+      "license": "ISC",
+      "dependencies": {
+            "axios": "^0.24.0",
+            "cors": "^2.8.5",
+            "dotenv": "^10.0.0",
+            "express": "^4.17.1",
+            "google-spreadsheet": "^3.2.0",
+            "node-localstorage": "^2.2.1",
+            "nodemon": "^2.0.15"
+      }
+}
